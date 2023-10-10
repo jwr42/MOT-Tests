@@ -31,19 +31,16 @@ test_type_details = pd.read_csv("data/mdr_test_type.csv", header=0, sep="|")
 # removing all but the test categorised as "normal tests" to prevent data leakage
 df = df[df.test_type == "NT"]
 
-# Multiple test outcomes in the dataset details in a lookup table
+# removing all but the test class used for cars (class 4)
+df = df[df.test_class_id == 4]
+
+# multiple test outcomes in the dataset details in a lookup table
 test_result_details = pd.read_csv("data/mdr_test_outcome.csv", header=0, sep="|")
 # Data Source: https://data.dft.gov.uk/anonymised-mot-test/lookup.zip
 test_result_codes = test_result_details.result_code.unique().tolist()
 
-# need to be able to classify the remaining rows as passes and non-passes
-df["test_result_passed"] = df.test_result.apply(lambda result_code: 1 if result_code == "P" else 0)
-
-df.test_result_passed.mean()  # probability of passing MOT = 0.704
-
 num_duplicate_vehicle_ids = len(df) - df.vehicle_id.nunique()  # check for duplicate vehicle ids
 num_duplicate_tests = len(df) - df.test_id.nunique()  # check for duplicate tests
-
 # no duplicates for test_ids, but we do see duplicates for vehicle ids
 
 # create a dataframe to store duplicates rows
@@ -62,6 +59,11 @@ df.sort_values(by="test_date").drop_duplicates(subset="vehicle_id", keep="first"
 # passing its MOT on its first attempt we'll keep the first attempt at the MOT for each car in the dataframe by sorting
 # the dataframe df by test_date and then keeping only the first entry for each vehicle_id - i.e. the fail result for
 # those cars that do have duplicate entries representing multiple attempts
+
+# FEATURE ENGINEERING
+
+# need to be able to classify the remaining rows as passes and non-passes
+df["test_result_passed"] = df.test_result.apply(lambda result_code: 1 if result_code == "P" else 0)
 
 df.test_result_passed.mean()  # Probability of passing MOT on first attempt = 0.689
 
