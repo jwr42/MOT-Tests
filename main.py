@@ -65,7 +65,6 @@ df.sort_values(by="test_date").drop_duplicates(subset="vehicle_id", keep="first"
 
 df.test_result_passed.mean()  # Probability of passing MOT on first attempt = 0.689
 
-# TODO: investigate why there are over 140k non-unique vehicle ids
 # TODO: add age of car feature
 # TODO: create dummy variables for the fuel type columns
 # TODO: create dummy vars for only the main model / make combinations
