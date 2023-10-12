@@ -69,6 +69,9 @@ df["test_result_passed"] = df.test_result.apply(lambda result_code: 1 if result_
 
 df.test_result_passed.mean()  # Probability of passing MOT on first attempt = 0.689
 
-# TODO: add age of car feature
+df.head()  # display first five rows of final dataframe
+
+df["vehicle_age"] = df["test_date"] - df["first_use_date"]
+
 # TODO: create dummy variables for the fuel type columns
 # TODO: create dummy vars for only the main model / make combinations
