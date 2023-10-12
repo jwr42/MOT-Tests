@@ -75,3 +75,4 @@ df["vehicle_age"] = df["test_date"] - df["first_use_date"]
 
 # TODO: create dummy variables for the fuel type columns
 # TODO: create dummy vars for only the main model / make combinations
+# TODO: visualisations / summary tables?
