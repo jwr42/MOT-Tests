@@ -1,0 +1,6 @@
+,test_id,vehicle_id,test_date,test_class_id,test_type,test_result,test_mileage,postcode_area,make,model,colour,fuel_type,cylinder_capacity,first_use_date,test_result_passed,vehicle_age,make_model
+0,334683447,634775234,2022-01-01,4,NT,P,227219.0,E,TOYOTA,PRIUS,SILVER,Hybrid Electric (Clean),1497.0,2008-01-17,1,5098 days,TOYOTA PRIUS
+1,586095521,1220215709,2022-01-01,4,NT,P,136552.0,CR,TOYOTA,PRIUS,GREY,Hybrid Electric (Clean),1798.0,2013-11-29,1,2955 days,TOYOTA PRIUS
+2,960974211,1315791989,2022-01-01,4,NT,F,129847.0,E,TOYOTA,PRIUS,WHITE,Hybrid Electric (Clean),1798.0,2018-01-01,0,1461 days,TOYOTA PRIUS
+3,1041792341,1144451355,2022-01-01,4,NT,P,123133.0,TW,TOYOTA,PRIUS,SILVER,Hybrid Electric (Clean),1496.0,2016-11-21,1,1867 days,TOYOTA PRIUS
+5,1032834657,1310098304,2022-01-01,4,NT,PRS,238117.0,IG,TOYOTA,PRIUS,BLACK,Hybrid Electric (Clean),1798.0,2012-06-29,0,3473 days,TOYOTA PRIUS

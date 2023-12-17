@@ -87,7 +87,7 @@ df_fuel_type_freq = df.fuel_type.value_counts()
 
 # quick visual inspection of the 
 df_make_model_freq.head(75).sort_values().plot(kind='hist', bins=20, figsize=(10,5))
-plt.savefig('output/plot_test.png')
+plt.savefig('plot_test.png')
 
 print(df_make_model_freq.iloc[:100].values.sum()/len(df))
 
