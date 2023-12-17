@@ -69,10 +69,16 @@ df["test_result_passed"] = df.test_result.apply(lambda result_code: 1 if result_
 
 df.test_result_passed.mean()  # Probability of passing MOT on first attempt = 0.689
 
-df.head()  # display first five rows of final dataframe
+# create column for the age of the car at the date of the tests
+df["vehicle_age"] = df["test_date"]-df["first_use_date"]
 
-df["vehicle_age"] = df["test_date"] - df["first_use_date"]
+# add the make and model into a single column to allow it to be considered a combined value
+df["make_model"] = df["make"].astype(str) + " " + df["model"].astype(str)   # make & model are categorical dtypes
 
+# extract value counts from categorical columns
+df_make_model_freq = df.make_model.value_counts()
+df_make_freq = df.make.value_counts()
+df_fuel_type_freq = df.fuel_type.value_counts()
 # TODO: create dummy variables for the fuel type columns
 # TODO: create dummy vars for only the main model / make combinations
 # TODO: visualisations / summary tables?
